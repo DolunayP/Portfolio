@@ -8,4 +8,4 @@ You can see the website at https://dolunaypazarci.netlify.app
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/DolunayP/Portfolio/blob/main/LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/DolunayP/Portfolio/blob/master/LICENSE.md) for more information.
