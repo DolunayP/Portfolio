@@ -149,7 +149,7 @@ section {
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 34.5rem;
+    width: 36.5rem;
     height: 5rem;
 }
 
@@ -158,7 +158,7 @@ section {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 15rem;
+    width: 17.4rem;
     height: 100%;
     background-color: var(--main-color);
     border: 0.2rem solid var(--main-color);
