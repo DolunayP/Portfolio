@@ -82,18 +82,30 @@ section {
   padding: 8rem 6% 2rem;
 }
 
+/* ===== HOME + VIDEO BACKGROUND ===== */
 .home {
+  position: relative; /* for absolutely positioned video */
   display: flex;
   align-items: center;
   padding: 0 9%;
-  background: url("img/home.png") no-repeat;
-  background-position: center;
-  background-size: cover;
+  overflow: hidden; /* hide overflow from video */
+}
+
+/* Full-bleed background video */
+.home .bg-video {
+  position: absolute;
+  inset: 0; /* top/right/bottom/left: 0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* similar to background-size: cover */
+  z-index: 0; /* behind content */
+  filter: brightness(0.7); /* optional readability */
 }
 
 .home-content {
   max-width: 60rem;
-  z-index: 98;
+  z-index: 2;
+  position: relative;
 }
 
 .home-content h1 {
@@ -151,6 +163,7 @@ section {
   justify-content: space-between;
   width: 36.5rem;
   height: 5rem;
+  z-index: 2;
 }
 
 .btn-box .btn {
@@ -180,11 +193,9 @@ section {
   background: transparent;
   color: var(--main-color);
 }
-
 .btn-box .btn:nth-child(2):hover {
   color: var(--bg-color);
 }
-
 .btn-box .btn:nth-child(2)::before {
   background: var(--main-color);
 }
@@ -211,6 +222,7 @@ section {
   width: 170px;
   display: flex;
   justify-content: space-between;
+  z-index: 2;
 }
 
 .home-sci a {
@@ -250,7 +262,7 @@ section {
   width: 100%;
 }
 
-.home-imgHover {
+/* .home-imgHover {
   position: absolute;
   top: 0;
   right: 0;
@@ -258,13 +270,15 @@ section {
   height: 100%;
   background: transparent;
   transition: 2s;
-}
+  z-index: 2;
+} */
 
-.home-imgHover:hover {
+/* .home-imgHover:hover {
   background: #06162b;
   opacity: 0.15;
-}
+} */
 
+/* ===== ABOUT / SKILLS ===== */
 .about {
   display: flex;
   justify-content: center;
@@ -334,7 +348,6 @@ span {
   display: inline-block;
   width: 15rem;
 }
-
 .btn-box.btns a::before {
   background: var(--second-bg-color);
 }
@@ -402,18 +415,16 @@ span {
   padding: 1rem 0;
   text-align: center;
 }
-
 .skills-content .skill h3 {
   font-size: 2rem;
   white-space: nowrap;
 }
-
 .skills-content .skill i {
   color: var(--text-color);
   font-size: 4rem;
 }
 
-/*contact*/
+/* ===== CONTACT ===== */
 .contact {
   min-height: auto;
   padding-bottom: 7rem;
@@ -497,11 +508,9 @@ span {
   margin: 0.8rem 0 2rem;
   display: flex;
 }
-
 .contact form .textarea-field textarea {
   resize: none;
 }
-
 .contact form .btn-box.btns .btn {
   cursor: pointer;
 }
@@ -536,15 +545,13 @@ span {
   font-size: 3.6rem;
   padding: 0.5rem 0;
 }
-
 .contact-item a span {
   color: var(--text-color);
   padding: 0.5rem 0;
   text-align: center;
 }
 
-/* portfolio */
-
+/* ===== PORTFOLIO ===== */
 .portfolio {
   background: var(--bg-color);
 }
@@ -578,7 +585,6 @@ span {
   width: 100%;
   transition: 0.5s;
 }
-
 .portfolio-box:hover img {
   transform: scale(1.1);
 }
@@ -607,7 +613,6 @@ span {
 .portfolio-layer h4 {
   font-size: 3rem;
 }
-
 .portfolio-layer p {
   font-size: 1.6rem;
   margin: 0.3rem 0 1rem;
@@ -628,8 +633,7 @@ span {
   color: var(--second-bg-color);
 }
 
-/* footer */
-
+/* ===== FOOTER ===== */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -677,26 +681,21 @@ span {
   color: var(--bg-color);
   transition: 0.5s;
 }
-
 .footer-iconTop a:hover i {
   color: var(--main-color);
 }
 
-/* Responsive */
-
+/* ===== Responsive ===== */
 @media screen and (max-width: 1200px) {
   html {
     font-size: 55%;
   }
-
   .skills-content {
     grid-template-columns: repeat(3, 1fr);
   }
-
   .portfolio-layer h4 {
     font-size: 2rem;
   }
-
   .portfolio-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -706,19 +705,15 @@ span {
   .header {
     padding: 2rem 4%;
   }
-
   section {
     padding: 8rem 4% 2rem;
   }
-
   .home {
     padding: 0 4%;
   }
-
   .portfolio {
     padding-bottom: 7rem;
   }
-
   .footer {
     padding: 2rem 4%;
   }
@@ -726,11 +721,9 @@ span {
   .skills .skills-row {
     justify-content: center;
   }
-
   .skills-row .skills-column {
     max-width: 90%;
   }
-
   .skills-content {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -739,11 +732,9 @@ span {
     flex-direction: column;
     align-items: center;
   }
-
   .contact .contact-container .form-container {
     margin-bottom: 4rem;
   }
-
   .contact .contact-container .form-container,
   .contact .contact-container .contact-info-container {
     width: 75%;
@@ -754,7 +745,6 @@ span {
   .header {
     background: var(--bg-color);
   }
-
   #menu-icon {
     display: block;
   }
@@ -801,7 +791,6 @@ span {
     margin: 3rem 0;
     transform: translateX(-20rem);
   }
-
   .navbar.active a {
     transform: translateX(0);
     transition-delay: 0.25s;
@@ -818,7 +807,6 @@ span {
   .portfolio h2 {
     margin-bottom: 3rem;
   }
-
   .portfolio-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -833,7 +821,6 @@ span {
   .portfolio-container {
     grid-template-columns: 1fr;
   }
-
   .contact .contact-container .form-container,
   .contact .contact-container .contact-info-container {
     width: 95%;
@@ -844,21 +831,17 @@ span {
   html {
     font-size: 50%;
   }
-
   .home-content h1 {
     display: flex;
     flex-direction: column;
   }
-
   .home-sci {
     width: 160px;
   }
-
   .home-sci a {
     width: 38px;
     height: 38px;
   }
-
   .skills-content {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -868,15 +851,12 @@ span {
   .home-content h1 {
     font-size: 5.2rem;
   }
-
   .contact form .input-box .input-field {
     width: 100%;
   }
-
   .footer {
     flex-direction: column-reverse;
   }
-
   .footer p {
     margin-top: 2rem;
     text-align: center;
@@ -887,7 +867,6 @@ span {
   .home {
     justify-content: center;
   }
-
   .home-content {
     display: flex;
     align-items: center;
@@ -896,7 +875,7 @@ span {
   }
 }
 
-/* Animation reload and scroll */
+/* ===== Animations ===== */
 .animate {
   position: absolute;
   top: 0;
@@ -924,11 +903,9 @@ span {
 section:nth-child(3) .animate.scroll {
   background: var(--second-bg-color);
 }
-
 section:nth-child(4) .animate.scroll {
   background: var(--bg-color);
 }
-
 section:nth-child(5) .animate.scroll {
   background: var(--second-bg-color);
 }
@@ -940,15 +917,12 @@ section:nth-child(5) .animate.scroll {
   width: 0;
 }
 
-/* Keyframes animation */
-
 @keyframes homeBgText {
   0%,
   10%,
   100% {
     background-position: -33rem 0;
   }
-
   65%,
   85% {
     background-position: 0 0;
@@ -961,14 +935,12 @@ section:nth-child(5) .animate.scroll {
   100% {
     width: 0;
   }
-
   65%,
   78%,
   85% {
     width: 100%;
     opacity: 1;
   }
-
   75%,
   81% {
     opacity: 0;
